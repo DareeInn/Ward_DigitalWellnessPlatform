@@ -732,3 +732,106 @@ select:focus-visible {
         scroll-behavior: auto !important;
     }
 }
+
+/* =========================
+   Guided breathing
+========================= */
+
+.breathing-layout {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.breathing-panel,
+.daily-tip {
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-soft);
+}
+
+.breathing-stage {
+    min-height: 22rem;
+    display: grid;
+    place-items: center;
+    margin: var(--space-3) 0;
+    overflow: hidden;
+    background: linear-gradient(
+        135deg,
+        var(--color-accent),
+        var(--color-background)
+    );
+    border-radius: var(--radius-medium);
+}
+
+.breathing-circle {
+    width: 9rem;
+    height: 9rem;
+    display: grid;
+    place-items: center;
+    color: #ffffff;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 1rem rgba(180, 35, 47, 0.12),
+        0 1rem 3rem rgba(80, 20, 28, 0.18);
+    animation: guided-breathing 12s ease-in-out infinite;
+}
+
+.breathing-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.breathing-steps {
+    padding-left: 1.25rem;
+}
+
+.breathing-steps li + li {
+    margin-top: var(--space-1);
+}
+
+.daily-tip {
+    border-top: 0.35rem solid var(--color-primary);
+}
+
+.tip-date {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+@keyframes guided-breathing {
+    0%,
+    100% {
+        transform: scale(0.8);
+        background: var(--color-primary-dark);
+    }
+
+    35% {
+        transform: scale(1.35);
+        background: var(--color-primary);
+    }
+
+    50% {
+        transform: scale(1.35);
+        background: var(--color-primary);
+    }
+
+    85% {
+        transform: scale(0.8);
+        background: var(--color-primary-dark);
+    }
+}
+
+@media (min-width: 75rem) {
+    .breathing-layout {
+        grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+        align-items: start;
+    }
+
+    .daily-tip {
+        position: sticky;
+        top: 2rem;
+    }
+}
