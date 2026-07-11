@@ -291,3 +291,129 @@ select:focus-visible {
         grid-template-columns: repeat(3, 1fr);
     }
 }
+
+.journal-layout {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.journal-panel,
+.journal-summary {
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-soft);
+}
+
+.journal-form {
+    display: grid;
+    gap: var(--space-3);
+}
+
+.journal-form fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.journal-form legend,
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-2);
+    font-weight: 700;
+}
+
+.mood-options {
+    display: grid;
+    gap: var(--space-2);
+}
+
+.mood-option {
+    position: relative;
+    cursor: pointer;
+}
+
+.mood-option input {
+    position: absolute;
+    opacity: 0;
+}
+
+.mood-option span {
+    display: block;
+    padding: 0.85rem 1rem;
+    text-align: center;
+    background: var(--color-background);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-small);
+}
+
+.mood-option input:checked + span {
+    color: white;
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+.mood-option input:focus-visible + span {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+.form-group textarea {
+    width: 100%;
+    min-height: 10rem;
+    padding: var(--space-2);
+    font: inherit;
+    color: var(--color-text);
+    background: white;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-small);
+    resize: vertical;
+}
+
+.form-help {
+    margin-top: var(--space-1);
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+.form-message {
+    margin-bottom: var(--space-3);
+    padding: var(--space-2);
+    border-radius: var(--radius-small);
+}
+
+.form-message-error {
+    background: #fff1f1;
+    border-left: 0.35rem solid #9b1c1c;
+}
+
+.form-message-success {
+    background: #edf8f2;
+    border-left: 0.35rem solid #26734d;
+}
+
+.journal-summary blockquote {
+    margin: var(--space-2) 0 0;
+    padding-left: var(--space-2);
+    color: var(--color-muted);
+    border-left: 0.25rem solid var(--color-primary);
+}
+
+@media (min-width: 48rem) {
+    .mood-options {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (min-width: 75rem) {
+    .journal-layout {
+        grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+        align-items: start;
+    }
+
+    .journal-summary {
+        position: sticky;
+        top: 2rem;
+    }
+}
