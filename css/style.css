@@ -417,3 +417,160 @@ select:focus-visible {
         top: 2rem;
     }
 }
+
+.selfcare-layout {
+    display: grid;
+    gap: var(--space-4);
+}
+
+.selfcare-panel,
+.affirmation-panel {
+    padding: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-medium);
+    box-shadow: var(--shadow-soft);
+}
+
+.challenge-list {
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+}
+
+.challenge-item {
+    cursor: pointer;
+}
+
+.challenge-item input {
+    position: absolute;
+    opacity: 0;
+}
+
+.challenge-item span {
+    display: block;
+    padding: var(--space-2);
+    background: var(--color-background);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-small);
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.challenge-item input:checked + span {
+    color: var(--color-primary-dark);
+    background: var(--color-accent);
+    border-color: var(--color-primary);
+    text-decoration: line-through;
+}
+
+.challenge-item input:checked + span::before {
+    content: "✓ ";
+    font-weight: 700;
+}
+
+.challenge-item input:focus-visible + span {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+.progress-area {
+    margin-top: var(--space-3);
+}
+
+.progress-label {
+    font-weight: 700;
+}
+
+.progress-track {
+    height: 1rem;
+    overflow: hidden;
+    background: var(--color-border);
+    border-radius: 999px;
+}
+
+.progress-fill {
+    width: 20%;
+    height: 100%;
+    background: var(--color-primary);
+    border-radius: inherit;
+    transition: width 0.3s ease;
+}
+
+.affirmation-carousel input {
+    position: absolute;
+    opacity: 0;
+}
+
+.affirmation-slides {
+    min-height: 12rem;
+    display: grid;
+    place-items: center;
+    padding: var(--space-3);
+    background: var(--color-accent);
+    border-radius: var(--radius-medium);
+}
+
+.affirmation-slide {
+    display: none;
+    margin: 0;
+    max-width: 28rem;
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+#affirmation-1:checked ~ .affirmation-slides .slide-1,
+#affirmation-2:checked ~ .affirmation-slides .slide-2,
+#affirmation-3:checked ~ .affirmation-slides .slide-3 {
+    display: block;
+}
+
+.affirmation-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-1);
+    margin-top: var(--space-2);
+}
+
+.affirmation-controls label {
+    width: 1rem;
+    height: 1rem;
+    cursor: pointer;
+    background: var(--color-border);
+    border: 2px solid var(--color-primary-dark);
+    border-radius: 50%;
+}
+
+#affirmation-1:checked
+    ~ .affirmation-controls
+    label[for="affirmation-1"],
+#affirmation-2:checked
+    ~ .affirmation-controls
+    label[for="affirmation-2"],
+#affirmation-3:checked
+    ~ .affirmation-controls
+    label[for="affirmation-3"] {
+    background: var(--color-primary-dark);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+}
+
+@media (min-width: 75rem) {
+    .selfcare-layout {
+        grid-template-columns: 1.1fr 0.9fr;
+        align-items: start;
+    }
+}
