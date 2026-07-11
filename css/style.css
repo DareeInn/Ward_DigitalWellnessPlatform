@@ -22,6 +22,10 @@
     --space-5: 3rem;
 }
 
+/* =========================
+   Global reset and defaults
+========================= */
+
 * {
     box-sizing: border-box;
 }
@@ -38,8 +42,20 @@ body {
     background: var(--color-background);
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
 a {
     color: var(--color-primary-dark);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
 }
 
 a:focus-visible,
@@ -56,19 +72,42 @@ select:focus-visible {
     margin-inline: auto;
 }
 
+.section {
+    padding: var(--space-5) 0;
+}
+
+/* =========================
+   Accessibility helpers
+========================= */
+
 .skip-link {
     position: absolute;
-    left: -9999px;
     top: var(--space-2);
-    padding: var(--space-1) var(--space-2);
-    background: var(--color-text);
-    color: white;
+    left: -9999px;
     z-index: 1000;
+    padding: var(--space-1) var(--space-2);
+    color: #ffffff;
+    background: var(--color-text);
 }
 
 .skip-link:focus {
     left: var(--space-2);
 }
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+}
+
+/* =========================
+   Header and navigation
+========================= */
 
 .site-header {
     padding: var(--space-3) 0;
@@ -78,6 +117,7 @@ select:focus-visible {
 .site-logo {
     font-size: 1.35rem;
     font-weight: 700;
+    color: var(--color-primary-dark);
     text-decoration: none;
 }
 
@@ -97,15 +137,71 @@ select:focus-visible {
 .nav-list a {
     display: block;
     padding: 0.65rem 0.85rem;
-    color: white;
+    color: #ffffff;
     text-decoration: none;
     border-radius: var(--radius-small);
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .nav-list a:hover,
 .nav-list a:focus-visible {
     background: var(--color-primary);
 }
+
+.nav-list a:hover {
+    transform: translateY(-1px);
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.button {
+    display: inline-block;
+    padding: 0.8rem 1.1rem;
+    border: 2px solid transparent;
+    border-radius: var(--radius-small);
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+.button-primary {
+    color: #ffffff;
+    background: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+}
+
+.button-primary:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.button-secondary {
+    color: var(--color-primary-dark);
+    background: transparent;
+    border-color: var(--color-primary-dark);
+}
+
+.button-secondary:hover {
+    color: #ffffff;
+    background: var(--color-primary-dark);
+}
+
+/* =========================
+   Homepage hero
+========================= */
 
 .hero {
     padding: clamp(4rem, 10vw, 7rem) 0;
@@ -143,27 +239,9 @@ select:focus-visible {
     margin-top: var(--space-3);
 }
 
-.button {
-    display: inline-block;
-    padding: 0.8rem 1.1rem;
-    border-radius: var(--radius-small);
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.button-primary {
-    color: white;
-    background: var(--color-primary-dark);
-}
-
-.button-secondary {
-    color: var(--color-primary-dark);
-    border: 2px solid var(--color-primary-dark);
-}
-
-.section {
-    padding: var(--space-5) 0;
-}
+/* =========================
+   Homepage feature cards
+========================= */
 
 .feature-grid {
     display: grid;
@@ -176,50 +254,20 @@ select:focus-visible {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-medium);
     box-shadow: var(--shadow-soft);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
-.site-footer {
-    padding: var(--space-4) 0;
-    color: white;
-    background: var(--color-text);
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 2.5rem rgba(80, 20, 28, 0.12);
 }
 
-.disclaimer {
-    max-width: 50rem;
-    color: #d8e1df;
-}
+/* =========================
+   Shared page hero
+========================= */
 
-@media (min-width: 48rem) {
-    .feature-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .nav-list {
-        justify-content: center;
-    }
-}
-
-@media (min-width: 75rem) {
-    .hero {
-        min-height: 34rem;
-        display: grid;
-        align-items: center;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
 .page-hero {
     padding: clamp(3rem, 8vw, 5rem) 0;
     background: var(--color-accent);
@@ -236,6 +284,10 @@ select:focus-visible {
     color: var(--color-muted);
 }
 
+/* =========================
+   Resource directory
+========================= */
+
 .resource-grid {
     display: grid;
     gap: var(--space-3);
@@ -249,6 +301,14 @@ select:focus-visible {
     border: 1px solid var(--color-border);
     border-radius: var(--radius-medium);
     box-shadow: var(--shadow-soft);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 1rem 2.5rem rgba(80, 20, 28, 0.12);
 }
 
 .resource-card h2 {
@@ -280,17 +340,9 @@ select:focus-visible {
     border-radius: var(--radius-small);
 }
 
-@media (min-width: 48rem) {
-    .resource-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 75rem) {
-    .resource-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
+/* =========================
+   Mood journal
+========================= */
 
 .journal-layout {
     display: grid;
@@ -346,10 +398,14 @@ select:focus-visible {
     background: var(--color-background);
     border: 2px solid var(--color-border);
     border-radius: var(--radius-small);
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        border-color 0.2s ease;
 }
 
 .mood-option input:checked + span {
-    color: white;
+    color: #ffffff;
     background: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
 }
@@ -363,12 +419,15 @@ select:focus-visible {
     width: 100%;
     min-height: 10rem;
     padding: var(--space-2);
-    font: inherit;
     color: var(--color-text);
-    background: white;
+    background: #ffffff;
     border: 2px solid var(--color-border);
     border-radius: var(--radius-small);
     resize: vertical;
+}
+
+.form-group textarea:focus {
+    border-color: var(--color-primary);
 }
 
 .form-help {
@@ -400,23 +459,9 @@ select:focus-visible {
     border-left: 0.25rem solid var(--color-primary);
 }
 
-@media (min-width: 48rem) {
-    .mood-options {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-@media (min-width: 75rem) {
-    .journal-layout {
-        grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
-        align-items: start;
-    }
-
-    .journal-summary {
-        position: sticky;
-        top: 2rem;
-    }
-}
+/* =========================
+   Self-care layout
+========================= */
 
 .selfcare-layout {
     display: grid;
@@ -432,6 +477,10 @@ select:focus-visible {
     box-shadow: var(--shadow-soft);
 }
 
+/* =========================
+   Self-care checklist
+========================= */
+
 .challenge-list {
     display: grid;
     gap: var(--space-2);
@@ -439,6 +488,7 @@ select:focus-visible {
 }
 
 .challenge-item {
+    position: relative;
     cursor: pointer;
 }
 
@@ -454,9 +504,14 @@ select:focus-visible {
     border: 2px solid var(--color-border);
     border-radius: var(--radius-small);
     transition:
-        background 0.2s ease,
+        color 0.2s ease,
+        background-color 0.2s ease,
         border-color 0.2s ease,
         transform 0.2s ease;
+}
+
+.challenge-item span:hover {
+    transform: translateY(-1px);
 }
 
 .challenge-item input:checked + span {
@@ -476,6 +531,10 @@ select:focus-visible {
     outline-offset: 3px;
 }
 
+/* =========================
+   Self-care progress bar
+========================= */
+
 .progress-area {
     margin-top: var(--space-3);
 }
@@ -491,13 +550,32 @@ select:focus-visible {
     border-radius: 999px;
 }
 
-.progress-fill {
-    width: 20%;
-    height: 100%;
-    background: var(--color-primary);
-    border-radius: inherit;
-    transition: width 0.3s ease;
+.segmented-progress {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.25rem;
+    height: 1rem;
+    overflow: visible;
+    background: transparent;
 }
+
+.progress-segment {
+    background: var(--color-border);
+    border-radius: 999px;
+    transition: background-color 0.3s ease;
+}
+
+.selfcare-panel:has(#challenge-1:checked) .segment-1,
+.selfcare-panel:has(#challenge-2:checked) .segment-2,
+.selfcare-panel:has(#challenge-3:checked) .segment-3,
+.selfcare-panel:has(#challenge-4:checked) .segment-4,
+.selfcare-panel:has(#challenge-5:checked) .segment-5 {
+    background: var(--color-primary);
+}
+
+/* =========================
+   Affirmation carousel
+========================= */
 
 .affirmation-carousel input {
     position: absolute;
@@ -543,6 +621,13 @@ select:focus-visible {
     background: var(--color-border);
     border: 2px solid var(--color-primary-dark);
     border-radius: 50%;
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.affirmation-controls label:hover {
+    transform: scale(1.12);
 }
 
 #affirmation-1:checked
@@ -557,20 +642,93 @@ select:focus-visible {
     background: var(--color-primary-dark);
 }
 
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
-    clip: rect(0, 0, 0, 0);
+/* =========================
+   Footer
+========================= */
+
+.site-footer {
+    padding: var(--space-4) 0;
+    color: #ffffff;
+    background: #281719;
 }
 
+.site-footer p {
+    margin-top: 0;
+}
+
+.disclaimer {
+    max-width: 50rem;
+    color: #eadfe1;
+}
+
+/* =========================
+   Tablet breakpoint
+========================= */
+
+@media (min-width: 48rem) {
+    .nav-list {
+        justify-content: center;
+    }
+
+    .feature-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .mood-options {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+/* =========================
+   Desktop breakpoint
+========================= */
+
 @media (min-width: 75rem) {
+    .hero {
+        min-height: 34rem;
+        display: grid;
+        align-items: center;
+    }
+
+    .resource-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .journal-layout {
+        grid-template-columns: minmax(0, 2fr) minmax(18rem, 1fr);
+        align-items: start;
+    }
+
+    .journal-summary {
+        position: sticky;
+        top: 2rem;
+    }
+
     .selfcare-layout {
         grid-template-columns: 1.1fr 0.9fr;
         align-items: start;
+    }
+}
+
+/* =========================
+   Reduced motion support
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }

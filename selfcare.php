@@ -29,35 +29,40 @@ require_once 'includes/nav.php';
 
                 <div class="challenge-list">
                     <label class="challenge-item">
-                        <input type="checkbox">
+                        <input id="challenge-1" type="checkbox">
                         <span>Drink a full glass of water</span>
                     </label>
 
                     <label class="challenge-item">
-                        <input type="checkbox">
+                        <input id="challenge-2" type="checkbox">
                         <span>Stretch or move for 10 minutes</span>
                     </label>
 
                     <label class="challenge-item">
-                        <input type="checkbox">
+                        <input id="challenge-3" type="checkbox">
                         <span>Take a short walk outside</span>
                     </label>
 
                     <label class="challenge-item">
-                        <input type="checkbox">
+                        <input id="challenge-4" type="checkbox">
                         <span>Write down one thing you are grateful for</span>
                     </label>
 
                     <label class="challenge-item">
-                        <input type="checkbox">
+                        <input id="challenge-5" type="checkbox">
                         <span>Step away from your screen for 15 minutes</span>
                     </label>
                 </div>
 
                 <div class="progress-area" aria-label="Self-care progress">
                     <p class="progress-label">Complete activities to build progress.</p>
-                    <div class="progress-track">
-                        <div class="progress-fill"></div>
+
+                    <div class="progress-track segmented-progress">
+                        <span class="progress-segment segment-1"></span>
+                        <span class="progress-segment segment-2"></span>
+                        <span class="progress-segment segment-3"></span>
+                        <span class="progress-segment segment-4"></span>
+                        <span class="progress-segment segment-5"></span>
                     </div>
                 </div>
             </section>
