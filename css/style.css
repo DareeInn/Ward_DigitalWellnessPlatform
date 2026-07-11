@@ -1,19 +1,19 @@
 :root {
-    --color-primary: #276b6d;
-    --color-primary-dark: #194f51;
-    --color-accent: #d6eee8;
-    --color-background: #f6faf9;
+    --color-primary: #b4232f;
+    --color-primary-dark: #7f1720;
+    --color-accent: #f9e4e7;
+    --color-background: #fffafa;
     --color-surface: #ffffff;
-    --color-text: #172624;
-    --color-muted: #526461;
-    --color-border: #cbdad7;
+    --color-text: #24191b;
+    --color-muted: #6d5a5e;
+    --color-border: #ead1d5;
 
     --font-body: Arial, Helvetica, sans-serif;
 
     --radius-small: 0.5rem;
     --radius-medium: 1rem;
 
-    --shadow-soft: 0 0.75rem 2rem rgba(23, 38, 36, 0.08);
+    --shadow-soft: 0 0.75rem 2rem rgba(80, 20, 28, 0.08);
 
     --space-1: 0.5rem;
     --space-2: 1rem;
@@ -111,7 +111,7 @@ select:focus-visible {
     padding: clamp(4rem, 10vw, 7rem) 0;
     background: linear-gradient(
         135deg,
-        var(--color-accent),
+        #f7d8dd,
         var(--color-background)
     );
 }
@@ -275,7 +275,7 @@ select:focus-visible {
 .crisis-notice {
     margin-top: var(--space-4);
     padding: var(--space-3);
-    background: #fff4f4;
+    background: #fdecef;
     border-left: 0.4rem solid var(--color-primary-dark);
     border-radius: var(--radius-small);
 }
@@ -389,8 +389,8 @@ select:focus-visible {
 }
 
 .form-message-success {
-    background: #edf8f2;
-    border-left: 0.35rem solid #26734d;
+    background: #f3f8f4;
+    border-left: 0.35rem solid #477a57;
 }
 
 .journal-summary blockquote {
