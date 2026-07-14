@@ -128,6 +128,89 @@ require_once 'includes/nav.php';
         </div>
     </section>
 
+    <section class="section platform-preview-section">
+        <div class="container">
+            <div class="section-heading">
+                <p class="eyebrow">Explore the platform</p>
+
+                <h2>A closer look at the Digital Wellness experience</h2>
+
+                <p>
+                    Preview the main tools and pages designed to support reflection,
+                    self-care, trusted resources, and healthier digital habits.
+                </p>
+            </div>
+
+            <div class="preview-grid">
+                <a class="preview-card" href="index.php">
+                    <img
+                        src="images/home-preview.png"
+                        alt="Preview of the Digital Wellness home page"
+                    >
+                    <div class="preview-card-content">
+                        <h3>Home</h3>
+                        <p>Discover the platform and its main wellness tools.</p>
+                    </div>
+                </a>
+
+                <a class="preview-card" href="resources.php">
+                    <img
+                        src="images/resources-preview.png"
+                        alt="Preview of the mental wellness resources page"
+                    >
+                    <div class="preview-card-content">
+                        <h3>Resources</h3>
+                        <p>Browse trusted mental health and wellness support.</p>
+                    </div>
+                </a>
+
+                <a class="preview-card" href="journal.php">
+                    <img
+                        src="images/journal-preview.png"
+                        alt="Preview of the daily mood journal page"
+                    >
+                    <div class="preview-card-content">
+                        <h3>Mood Journal</h3>
+                        <p>Reflect on your mood and record a daily check-in.</p>
+                    </div>
+                </a>
+
+                <a class="preview-card" href="selfcare.php">
+                    <img
+                        src="images/selfcare-preview.png"
+                        alt="Preview of the self-care challenge page"
+                    >
+                    <div class="preview-card-content">
+                        <h3>Self-Care</h3>
+                        <p>Complete wellness activities and explore affirmations.</p>
+                    </div>
+                </a>
+
+                <a class="preview-card" href="breathing.php">
+                    <img
+                        src="images/breathing-preview.png"
+                        alt="Preview of the guided breathing exercise page"
+                    >
+                    <div class="preview-card-content">
+                        <h3>Guided Breathing</h3>
+                        <p>Follow a calming CSS-powered breathing exercise.</p>
+                    </div>
+                </a>
+
+                <a class="preview-card" href="about.php">
+                    <img
+                        src="images/about-preview.png"
+                        alt="Preview of the About Digital Wellness page"
+                    >
+                    <div class="preview-card-content">
+                        <h3>About</h3>
+                        <p>Learn about the mission, technology, and project team.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <section class="section">
         <div class="container home-cta">
             <p class="eyebrow">Start with one small step</p>
